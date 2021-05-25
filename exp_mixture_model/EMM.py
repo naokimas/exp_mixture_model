@@ -73,8 +73,8 @@ class EMM:
             Mean parameter of the individual exponential distribution in
             the estimated EMM. The array length is k_final.
         """
+        x = np.array(x)
         if 0 in x:
-            x = np.array(x)
             self.x = x[x > 0]
             print("'x' contains 0, which has been removed.")
         else:
@@ -386,8 +386,8 @@ class EMMs:
             If True, message is printed upon completion of the calculation
             of each EMM.
         """
+        x = np.array(x)
         if 0 in x:
-            x = np.array(x)
             self.x = x[x > 0]
             print("'x' contains 0, which has been removed.")
         else:
@@ -613,12 +613,12 @@ class PC_EMM:
             raise AttributeError("Parametric complexity has not been calculated. Call 'calc' beforehand.")
         if n > self.n_max:
             raise ValueError(
-                """Parametric complexities only for n <= 'n_max' (= %d) are calculated. 
+                """Parametric complexities only for n <= 'n_max' (= %d) are calculated.
                 In the constructor, specify 'n_max', which has to be larger than or equal to %d.""" % (self.n_max, n)
             )
         if k > self.k_max:
             raise ValueError(
-                """Parametric complexities only for k <= 'k_max' (= %d) are calculated. 
+                """Parametric complexities only for k <= 'k_max' (= %d) are calculated.
                 In the constructor, specify 'k_max', which has to be larger than or equal to %d.""" % (self.k_max, k)
             )
 
@@ -692,12 +692,12 @@ class PC_mult:
             raise AttributeError("Parametric complexity has not been calculated. Call 'calc' beforehand.")
         if n not in self.ns:
             raise ValueError(
-                """Parametric complexities only for 'ns' (= %s) are calculated. 
+                """Parametric complexities only for 'ns' (= %s) are calculated.
                 In the constructor, specify 'ns', which is composed of %d.""" % (self.ns, n)
             )
         if k > self.k_max:
             raise ValueError(
-                """Parametric complexities only for k <= 'k_max' (= %d) are calculated. 
+                """Parametric complexities only for k <= 'k_max' (= %d) are calculated.
                 In the constructor, specify 'k_max', which has to be larger than or equal to %d.""" % (self.k_max, k)
             )
         return self.Cs[n][k]
